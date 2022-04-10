@@ -1,0 +1,1 @@
+password=${fw_admin_password}:mgmtnet=${mgmt_net}
