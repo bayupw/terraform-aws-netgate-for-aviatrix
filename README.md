@@ -1,8 +1,8 @@
 # Terraform AWS Module - Netgate pfSense Plus Firewall for Aviatrix
 
 Terraform module to deploy Netgate pfSense Plus Firewall EC2 instance into existing Transit VPC for Aviatrix Firenet integration
-https://docs.aviatrix.com/HowTos/config_PFsense.html
 https://docs.netgate.com/pfsense/en/latest/solutions/aws-vpn-appliance/launching-an-instance.html
+https://docs.aviatrix.com/HowTos/config_PFsense.html
 
 ## Usage with minimal customisation with default admin password: Aviatrix123#
 
@@ -21,7 +21,7 @@ module "netgate" {
 
 ```hcl
 module "netgate" {
-  source  = "bayupw/netgate-vm-for-aviatrix/aws"
+  source  = "bayupw/netgate-for-aviatrix/aws"
   version = "1.0.0"
 
   vpc_id            = "vpc-0a1b2c3d4e"
