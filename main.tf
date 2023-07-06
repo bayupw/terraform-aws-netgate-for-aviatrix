@@ -115,7 +115,7 @@ resource "aws_instance" "this" {
   instance_type     = var.fw_instance_type
   availability_zone = "${data.aws_region.current.name}${var.az_suffix}"
   key_name          = var.key_name
-  
+
   # Apply bootstrap.sh
   user_data = templatefile("${path.module}/bootstrap.sh",
     {
@@ -123,11 +123,17 @@ resource "aws_instance" "this" {
       "mgmt_net"    = var.mgmt_net
     }
   )
+  root_block_device {
+    encrypted = var.fw_volume_encrypt
+    kms_key_id = var.fw_volume_encrypt_kms_key_id
+  }
 
   ebs_block_device {
     device_name = "/dev/sdb"
     volume_size = "30"
     volume_type = "standard"
+    encrypted = var.fw_volume_encrypt
+    kms_key_id = var.fw_volume_encrypt_kms_key_id
   }
 
   network_interface {
