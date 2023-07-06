@@ -53,3 +53,15 @@ variable "fw_instance_type" {
   description = "AWS instance type"
   default     = "t2.micro"
 }
+
+variable "fw_volume_encrypt" {
+  type = bool
+  description = "Enable Firewall EBS Encryption"
+  default = false
+}
+
+variable "fw_volume_encrypt_kms_key_id" {
+  type = string
+  description = "KMS Key to use for EBS encryption"
+  default = null
+}
